@@ -27,10 +27,9 @@ public class ContactList {
         Scanner scan = new Scanner(System.in);
         boolean valid;
         do{
-            System.out.println("Enter the index of contact to remove: ");
-            int indexContactRemove = scan.nextInt();
+            int indexContactRemove = Integer.parseInt(InputCollector.getUserInput("Enter the index of contact to remove: "));
             if (!(indexContactRemove>0) && !(indexContactRemove<= ListContact.size())){
-                System.out.println("Invalid input. Enter a number between and "+ListContact.size());
+                System.out.println("Invalid input. Enter a number between 0 and "+ListContact.size());
                 valid = false;
             }else{
                 valid = true;
@@ -43,13 +42,11 @@ public class ContactList {
 
     public static void UpdateContact() {
         AllContacts();
-        Scanner scan = new Scanner(System.in);
         boolean valid;
         do{
-            System.out.println("Enter the index of contact to update: ");
-            int indexContactUpdate = scan.nextInt();
+            int indexContactUpdate = Integer.parseInt(InputCollector.getUserInput("Enter the index of contact to update: "));
             if (!(indexContactUpdate>0) && !(indexContactUpdate<= ListContact.size())){
-                System.out.println("Invalid input. Enter a number between and "+ListContact.size());
+                System.out.println("Invalid input. Enter a number between 0 and "+ListContact.size());
                 valid = false;
             }else{
                 valid = true;

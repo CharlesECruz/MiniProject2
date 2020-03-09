@@ -1,31 +1,23 @@
 import java.util.Scanner;
 
 public class InputCollector {
-    /*public static String getUserInput(String prompt){
+    public static String getUserInput(String prompt){
         System.out.println(prompt);
         Scanner scan = new Scanner(System.in);
         return scan.nextLine();
-    }*/
+    }
     private static Scanner scan = new Scanner(System.in);
     public static Contact catchInfoContact(){
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Enter name: ");
-        String name =  scan.nextLine();
-        System.out.println("Enter number: ");
-        String number =  scan.nextLine();
+        String name =  getUserInput("Enter name: ");
+        String number =  getUserInput("Enter number: ");
         while (!Validation.isCorrectNumber(number)){
-            System.out.println("Invalid input remember the format (XXX-XXX-XXX) and all of them has to be numbers. Try again: ");
-            number =  scan.nextLine();
+            number =  getUserInput("Invalid input remember the format (XXX-XXX-XXX) and all of them has to be numbers. Try again: ");
         }
-        System.out.println("Enter work: ");
-        String work =  scan.nextLine();
-        System.out.println("Enter home: ");
-        String home =  scan.nextLine();
-        System.out.println("Enter city: ");
-        String city =  scan.nextLine();
+        String work =  getUserInput("Enter work: ");
+        String home =  getUserInput("Enter home: ");
+        String city =  getUserInput("Enter city: ");
         while(Validation.isLetters(city) && city.isEmpty()){
-            System.out.println("Invalid input the city only can contain letters. Try again: ");
-            city =  scan.nextLine();
+            city =  getUserInput("Invalid input the city only can contain letters. Try again: ");
         }
         return new Contact(number,home,work,name,city);
     }
